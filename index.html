@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>img</title>
+</head>
+<body>
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<p><img class="bgimageadd" src=''/></p>
+	<script>	
+	var key= Date.parse(new Date());
+		key=key/1000;	
+		$.ajax({
+			url:'bgimageadd.php',
+			method:'post',
+			data:{key:key},
+			success:function(data){
+				$(".bgimageadd").attr('src','data:image/jpg;base64,'+data);
+			}	
+		})
+	</script>
+</body>
+</html>					
+
+
+
+
+
+
+
+
+
