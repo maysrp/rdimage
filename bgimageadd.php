@@ -8,8 +8,10 @@
 		if($bnow<$key&&$key<$anow){
 			$imgurl=bgimageurl("./image/");//末尾必须加“/”,相对目录
 			$dir64=base64($imgurl);
+			$imga=getimagesize($imgurl);
+			$mime=$imga['mime'];
 			$info=file_get_contents($dir64);
-			echo $info;
+			echo "data:".$mime.";base64".$info;
 		}else{
 			return false;
 		}
