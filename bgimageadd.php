@@ -11,7 +11,7 @@
 			$imga=getimagesize($imgurl);
 			$mime=$imga['mime'];
 			$info=file_get_contents($dir64);
-			echo "data:".$mime.";base64".$info;
+			echo "data:".$mime.";base64,".$info;
 		}else{
 			return false;
 		}
