@@ -18,17 +18,14 @@
 	}
 	function bgimageurl($dir){
 		$dirarray=scandir($dir);//末尾必须加“/”,相对目录
-		$imgarray=array();
-		foreach ($dirarray as $key => $value) {
-			$imgurl=$dir.$value;
-			$jugg=getimagesize($imgurl);
-			if($jugg){
-				$imgarray[]=$imgurl;
-			}
-		}
-		$count=count($imgarray)-1;
+		$count=count($dirarray)-1;
 		$mt=mt_rand(0,$count);
-		return $imgarray[$mt];
+		$filedir=$dir.$dirarray[$mt];
+		if(getimagesize($filedir)){
+			return $filedir;
+		}else{
+			bgimageurl($dir)
+		}
 	}
 	function base64($dir){
 		if(!is_file($dir.".64")){
