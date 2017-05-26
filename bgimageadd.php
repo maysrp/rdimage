@@ -28,6 +28,7 @@
 		}
 	}
 	function base64($dir){
+		$dir=str_replace("/image/","/base64/",$dir);
 		if(!is_file($dir.".64")){
 			$info=file_get_contents($dir);
 			$bs=base64_encode($info);
