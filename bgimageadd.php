@@ -28,11 +28,11 @@
 		}
 	}
 	function base64($dir){
-		$dir=str_replace("/image/","/base64/",$dir);
-		if(!is_file($dir.".64")){
+		$xdir=str_replace("/image/","/base64/",$dir);
+		if(!is_file($xdir.".64")){
 			$info=file_get_contents($dir);
 			$bs=base64_encode($info);
-			file_put_contents($dir.".64", $bs);
+			file_put_contents($xdir.".64", $bs);
 		}
-		return $dir.".64";
+		return $xdir.".64";
 	}
