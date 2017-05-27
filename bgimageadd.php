@@ -24,7 +24,7 @@
 		if(getimagesize($filedir)){
 			return $filedir;
 		}else{
-			bgimageurl($dir)
+			bgimageurl($dir);
 		}
 	}
 	function base64($dir){
